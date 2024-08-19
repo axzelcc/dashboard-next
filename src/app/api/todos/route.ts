@@ -1,6 +1,8 @@
+import { getUserSessionServer } from '@/auth';
 import prisma from '@/lib/prisma'
-import { NextResponse, NextRequest } from 'next/server'
-import { todo } from 'node:test';
+import { useSession } from 'next-auth/react';
+import { NextResponse } from 'next/server'
+
 import * as yup from 'yup';
 
 export async function GET(request: Request) { 
@@ -27,7 +29,8 @@ export async function GET(request: Request) {
 
 const postSchema = yup.object({
   description: yup.string().required(),
-  complete:yup.boolean().optional().default(false), //! TODO mostrar algo interesante
+  complete:yup.boolean().optional().default(false),
+  userId: yup.string().optional().default('53732be5-4f91-4523-9c5d-95a5a9c24a7a')   //! TODO mostrar algo interesante
 })
 
 export async function POST(request: Request) { 
@@ -35,10 +38,18 @@ export async function POST(request: Request) {
   // return NextResponse.json(todo);
 
   try{
-    const { complete, description } = await postSchema.validate( await request.json() );
-    const todo = await prisma.todo.create({ data: { complete, description } });
+    
+    const { complete, description, userId } = await postSchema.validate( await request.json() );
+    const todo = await prisma.todo.create({ 
+      data: { 
+        complete, 
+        description, 
+        userId
+      }
+    });
     return NextResponse.json(todo);  
   } catch (error) {
+  
     return NextResponse.json( error, { status: 400 } );
   }
 

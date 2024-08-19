@@ -6,8 +6,9 @@ import Image from 'next/image'
 import { SidebarItem } from './SidebarItem'
 import { IoBasketOutline, IoCalendarOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline, IoPerson, IoPersonOutline } from 'react-icons/io5'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+
 import { LogoutButton } from './LogoutButton'
+import { authOptions } from '@/auth'
 
 const MenuItems = [
   {

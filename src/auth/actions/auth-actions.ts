@@ -1,7 +1,8 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import prisma from "@/lib/prisma";
 import bcryp from 'bcryptjs';
 import { getServerSession } from "next-auth";
+import { authOptions } from "../options/route";
 
 export const getUserSessionServer = async() => {
   const session = await getServerSession(authOptions);

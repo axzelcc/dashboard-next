@@ -14,6 +14,7 @@ export const metadata = {
 export default async function RestTodosPage() {
 
   const user = await getUserSessionServer();
+ 
   if (!user) redirect('/api/auth/signin');     
   const todos = await prisma.todo.findMany({
     where: {

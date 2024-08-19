@@ -37,7 +37,7 @@ export const addTodo = async(  description: string  ) => {
   
   try{
     const user = await getUserSessionServer();
-    console.log(user);
+   
     const todo = await prisma.todo.create({ data: { description, userId: `${user?.id}` } });
     revalidatePath('/dashboard/server-todos');
 
