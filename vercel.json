@@ -16,10 +16,6 @@
 
       "GOOGLE_CLIENT_ID":"290239160101-p3rs639crojbjk55t95q6vcamdja7v1c.apps.googleusercontent.com",
       "GOOGLE_CLIENT_SECRET":"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"
-    },
-    "commands": [
-      "npx prisma generate",
-      "npx prisma migrate deploy"
-    ]
+    }
   }
 }
