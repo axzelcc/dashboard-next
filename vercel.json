@@ -1,21 +1,16 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node"
-    }
-  ],
-  "build": {
-    "env": {
-      "DATABASE_URL":"postgresql://postgres.sevgxomnetakbpkqkyqc:3%24Z%23j89%5Ba4%5E%2B@aws-0-us-west-1.pooler.supabase.com:6543/postgres",
+  "buildCommand": "prisma generate && next build",
+  "version": 2,
+  "env": {
+    "DATABASE_URL":"postgresql://postgres.sevgxomnetakbpkqkyqc:3%24Z%23j89%5Ba4%5E%2B@aws-0-us-west-1.pooler.supabase.com:6543/postgres",
 
-      "NEXTAUTH_SECRET":"99403200a9fb137f195491676d41e18a",
+    "NEXTAUTH_SECRET":"99403200a9fb137f195491676d41e18a",
 
-      "GITHUB_ID":"Ov23liiAVP3D5S62yVm3",
-      "GITHUB_SECRET":"2145a3e2347f0be1363b6c854bdb37ce4aeb6c6a",
+    "GITHUB_ID":"Ov23liiAVP3D5S62yVm3",
+    "GITHUB_SECRET":"2145a3e2347f0be1363b6c854bdb37ce4aeb6c6a",
 
-      "GOOGLE_CLIENT_ID":"290239160101-p3rs639crojbjk55t95q6vcamdja7v1c.apps.googleusercontent.com",
-      "GOOGLE_CLIENT_SECRET":"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"
-    }
+    "GOOGLE_CLIENT_ID":"290239160101-p3rs639crojbjk55t95q6vcamdja7v1c.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET":"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"
   }
+
 }
